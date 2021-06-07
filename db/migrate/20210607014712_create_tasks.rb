@@ -7,6 +7,8 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.text :notes
       t.text :task_url
       t.integer :user_id
+
+      t.timestamps
     end
   end
 end

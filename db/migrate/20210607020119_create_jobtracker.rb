@@ -9,6 +9,8 @@ class CreateJobtracker < ActiveRecord::Migration[5.2]
       t.text :job_notes
       t.text :collateral
       t.integer :user_id
+
+      t.timestamps
     end
   end
 end

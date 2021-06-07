@@ -1,3 +1,3 @@
 class Task < ApplicationRecord
-  belong_to :user, :optional => true
+  belongs_to :user, :optional => true
 end

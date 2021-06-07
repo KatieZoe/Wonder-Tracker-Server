@@ -10,6 +10,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.text :github_url
       t.boolean :student_status
       t.integer :cohort_id
+
+      t.timestamps
     end
   end
 end

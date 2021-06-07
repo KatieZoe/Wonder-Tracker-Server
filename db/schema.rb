@@ -19,8 +19,6 @@ ActiveRecord::Schema.define(version: 2021_06_07_020119) do
     t.text "course"
     t.text "cohort_number"
     t.boolean "load"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "jobtrackers", force: :cascade do |t|
@@ -32,8 +30,6 @@ ActiveRecord::Schema.define(version: 2021_06_07_020119) do
     t.text "job_notes"
     t.text "collateral"
     t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -43,8 +39,6 @@ ActiveRecord::Schema.define(version: 2021_06_07_020119) do
     t.text "notes"
     t.text "task_url"
     t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,8 +51,6 @@ ActiveRecord::Schema.define(version: 2021_06_07_020119) do
     t.text "github_url"
     t.boolean "student_status"
     t.integer "cohort_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

@@ -1,6 +1,6 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
     allow do
-      origins 'http://localhost:3000', 'http://localhost:3001' ##this needs an explicit list of your URLs on heroku
+      origins 'http://localhost:3000', 'http://localhost:3001'
 
       resource '*',
         headers: :any,

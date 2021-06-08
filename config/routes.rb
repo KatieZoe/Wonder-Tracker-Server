@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/logged_in', to: 'sessions#is_logged_in?'
 
-  resources :users, only: [:create, :show, :index]
+  resources :users, only: [:create, :show, :index, :update]
   resources :tasks
   resources :jobtrackers
   resources :cohorts

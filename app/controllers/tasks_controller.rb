@@ -43,28 +43,32 @@ class TasksController < ApplicationController
   end
 
   def create
-   @task = Task.new(task_params)
-
-   respond_to do |format|
-     if @task.save
-       format.html { redirect_to @task, notice: "Task was successfully created." }
-       format.json { render :show, status: :created, location: @task }
-     else
-       format.html { render :new, status: :unprocessable_entity }
-       format.json { render json: @task.errors, status: :unprocessable_entity }
-     end
+    @task = Task.new(task_params)
+    if @task.save
+      render json: {
+        status: :created,
+        user: @task
+      }
+    else
+      render json: {
+        status: 500,
+        errors: @task.errors.full_messages
+      }
     end
   end
 
   def update
-    respond_to do |format|
-      if @task.update(task_params)
-        format.html { redirect_to @task, notice: "Task updated succefully" }
-        format.json { render :show, status: :ok, location: @task }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
-      end
+    @task = Task.find(params[:id])
+    if @task.update(task_params)
+      render json: {
+        status: :updated,
+        user: @task
+      }
+    else
+      render json: {
+        status: 500,
+        errors: @task.errors.full_messages
+      }
     end
   end
 

@@ -92,4 +92,7 @@ Jobtracker.destroy_all
 
 job1 = Jobtracker.create :company_name => 'Alpha', :jd => 'Need of junior developer but should work as most senior developer, and should work 24*7 tech stack: entire technology ,salary: should work for free', :job_title => 'Junior web developer', :status => '1', :job_notes => 'Moved to another round and asked me to build their project as assesment', :collateral => 'provided resume and cover letter url', :user_id => '1'
 
+job1 = Jobtracker.create :company_name => 'Beta', :jd => 'Need of junior developer but should work as most senior developer, and should work 24*7 tech stack: entire technology ,salary: should work for free', :job_title => 'Junior web developer', :status => '1', :job_notes => 'Moved to another round and asked me to build their project as assesment', :collateral => 'provided resume and cover letter url', :user_id => '1'
+
+
 puts "#{Jobtracker.count} jobs created"

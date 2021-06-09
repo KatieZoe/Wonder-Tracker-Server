@@ -13,8 +13,8 @@
 #   end
 # end
 Cohort.destroy_all
-cohort1 = Cohort.create :course => 'software engineer immersive', :cohort_number => 'SEI43', :load => 'true'
-cohort2 = Cohort.create :course => 'UX designing', :cohort_number => 'UX45', :load => 'true'
+cohort1 = Cohort.create :course => 'Software Engineer Immersive', :cohort_number => 'SEI43', :load => 'true'
+cohort2 = Cohort.create :course => 'User Experience Design', :cohort_number => 'UX45', :load => 'true'
 puts "#{Cohort.count} cohorts created"
 
 

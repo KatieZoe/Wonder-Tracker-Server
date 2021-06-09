@@ -44,28 +44,32 @@ class CohortsController < ApplicationController
   end
 
   def create
-   @cohort = Cohort.new(cohort_params)
-
-   respond_to do |format|
-     if @cohort.save
-       format.html { redirect_to @cohort, notice: "Cohort was successfully created." }
-       format.json { render :show, status: :created, location: @cohort }
-     else
-       format.html { render :new, status: :unprocessable_entity }
-       format.json { render json: @cohort.errors, status: :unprocessable_entity }
-     end
+    @cohort = Cohort.new(cohort_params)
+    if @cohort.save
+      render json: {
+        status: :created,
+        user: @cohort
+      }
+    else
+      render json: {
+        status: 500,
+        errors: @cohort.errors.full_messages
+      }
     end
   end
 
   def update
-    respond_to do |format|
-      if @cohort.update(cohort_params)
-        format.html { redirect_to @cohort, notice: "Cohort created succefully" }
-        format.json { render :show, status: :ok, location: @cohort }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @cohort.errors, status: :unprocessable_entity }
-      end
+    @cohort = Cohort.find(params[:id])
+    if @cohort.update(jobtracker_params)
+      render json: {
+        status: :updated,
+        user: @cohort
+      }
+    else
+      render json: {
+        status: 500,
+        errors: @cohort.errors.full_messages
+      }
     end
   end
 

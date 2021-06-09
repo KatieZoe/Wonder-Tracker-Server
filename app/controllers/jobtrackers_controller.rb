@@ -43,28 +43,32 @@ class JobtrackersController < ApplicationController
   end
 
   def create
-   @jobtracker = Jobtracker.new(jobtracker_params)
-
-   respond_to do |format|
-     if @jobtracker.save
-       format.html { redirect_to @jobtracker, notice: "Jobtracker was successfully created." }
-       format.json { render :show, status: :created, location: @jobtracker }
-     else
-       format.html { render :new, status: :unprocessable_entity }
-       format.json { render json: @jobtracker.errors, status: :unprocessable_entity }
-     end
+    @jobtracker = Jobtracker.new(jobtracker_params)
+    if @jobtracker.save
+      render json: {
+        status: :created,
+        user: @jobtracker
+      }
+    else
+      render json: {
+        status: 500,
+        errors: @jobtracker.errors.full_messages
+      }
     end
   end
 
   def update
-    respond_to do |format|
-      if @jobtracker.update(jobtracker_params)
-        format.html { redirect_to @jobtracker, notice: "Jobtracker created succefully" }
-        format.json { render :show, status: :ok, location: @jobtracker }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @jobtracker.errors, status: :unprocessable_entity }
-      end
+    @jobtracker = Jobtracker.find(params[:id])
+    if @jobtracker.update(jobtracker_params)
+      render json: {
+        status: :updated,
+        user: @jobtracker
+      }
+    else
+      render json: {
+        status: 500,
+        errors: @jobtracker.errors.full_messages
+      }
     end
   end
 

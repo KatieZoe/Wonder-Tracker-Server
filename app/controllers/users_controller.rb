@@ -28,21 +28,6 @@ class UsersController < ApplicationController
     end
   end
 
-#NOT SURE ABOUT THESE TWO
-  # def edit
-  #   @user = User.find(params[:id])
-  #  if @user
-  #     render json: {
-  #       user: @user
-  #     }
-  #   else
-  #     render json: {
-  #       status: 500,
-  #       errors: ['user not found']
-  #     }
-  #   end
-  # end
-
   def create
     @user = User.new(user_params)
     if @user.save
@@ -59,6 +44,22 @@ class UsersController < ApplicationController
     end
   end
 
+  ##Not really sure about update function it.
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      render json: {
+        status: :updated,
+        user: @user
+      }
+    else
+      render json: {
+        status: 500,
+        errors: @user.errors.full_messages
+      }
+    end
+  end
 #NOT SURE ABOUT THIS
   # def update
   #   respond_to do |format|

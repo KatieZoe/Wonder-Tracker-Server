@@ -1,7 +1,19 @@
 class JobtrackersController < ApplicationController
   def index
-    @jobtrackers = Jobtracker.all.where(user_id: @current_user.id)
-
+    @jobtrackers = Jobtracker.all
+    if @jobtrackers
+      render json: {
+        jobtracker: @jobtrackers
+      }
+    else
+      render json: {
+        status: 500,
+        errors: ['no jobtrackers found']
+      }
+    end
+  end
+  def getjobs
+    @jobtrackers = Jobtracker.all.where(user_id: params[:user_id])
     if @jobtrackers
       render json: {
         jobtracker: @jobtrackers

@@ -36,7 +36,6 @@ puts "#{Cohort.count} cohorts created"
 #   end
 # end
 User.destroy_all
-user1 = User.create :name => "Bhavya Govind", :email => 'ba@ga.com', :password =>'chicken', :admin => true, :image_url => 'https://miro.medium.com/fit/c/1360/1360/0*6YrUAN2jxVKwGC_-.', :linkedin_url => 'www.linkedin.com', :github_url => 'www.github.com', :student_status => true, :cohort_id => '1'
 user2 = User.create :name => "Katie Lugton", :email => 'ka@ga.com', :password =>'chicken', :admin => true, :image_url => 'https://miro.medium.com/fit/c/1360/1360/0*6YrUAN2jxVKwGC_-.', :linkedin_url => 'www.linkedin.com', :github_url => 'www.github.com', :student_status => true
 user3 = User.create :name => "Priyanka", :email => 'pr@ga.com', :password =>'chicken', :admin => true, :image_url => 'https://miro.medium.com/fit/c/1360/1360/0*6YrUAN2jxVKwGC_-.', :linkedin_url => 'www.linkedin.com', :github_url => 'www.github.com', :student_status => true
 user4 = User.create :name => "Audrey Patrecia", :email => 'ad@ga.com', :password =>'chicken', :admin => true, :image_url => 'https://miro.medium.com/fit/c/1360/1360/0*6YrUAN2jxVKwGC_-.', :linkedin_url => 'www.linkedin.com', :github_url => 'www.github.com', :student_status => true
@@ -90,9 +89,11 @@ puts "#{User.count} users created"
 
 Jobtracker.destroy_all
 
-job1 = Jobtracker.create :company_name => 'Alpha', :jd => 'Need of junior developer but should work as most senior developer, and should work 24*7 tech stack: entire technology ,salary: should work for free', :job_title => 'Junior web developer', :status => '1', :job_notes => 'Moved to another round and asked me to build their project as assesment', :collateral => 'provided resume and cover letter url', :user_id => '1'
+job1 = Jobtracker.create :company_name => 'Alpha', :jd => 'Need of junior developer but should work as most senior developer, and should work 24*7 tech stack: entire technology ,salary: should work for free', :job_title => 'Junior web developer', :status => '1', :job_notes => 'Moved to another round and asked me to build their project as assesment', :collateral => 'provided resume and cover letter url', :user_id => '5'
 
-job1 = Jobtracker.create :company_name => 'Beta', :jd => 'Need of junior developer but should work as most senior developer, and should work 24*7 tech stack: entire technology ,salary: should work for free', :job_title => 'Junior web developer', :status => '1', :job_notes => 'Moved to another round and asked me to build their project as assesment', :collateral => 'provided resume and cover letter url', :user_id => '1'
+job2 = Jobtracker.create :company_name => 'Beta', :jd => 'Need of junior developer but should work as most senior developer, and should work 24*7 tech stack: entire technology ,salary: should work for free', :job_title => 'Junior web developer', :status => '1', :job_notes => 'Moved to another round and asked me to build their project as assesment', :collateral => 'provided resume and cover letter url', :user_id => '2'
+
+job3 = Jobtracker.create :company_name => 'Beta', :jd => 'Need of junior developer but should work as most senior developer, and should work 24*7 tech stack: entire technology ,salary: should work for free', :job_title => 'Junior web developer', :status => '1', :job_notes => 'Moved to another round and asked me to build their project as assesment', :collateral => 'provided resume and cover letter url', :user_id => '8'
 
 
 puts "#{Jobtracker.count} jobs created"

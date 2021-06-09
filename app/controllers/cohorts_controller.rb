@@ -43,6 +43,20 @@ class CohortsController < ApplicationController
     end
   end
 
+  def getStudents
+    @users = User.all.where(cohort_id: params[:cohort_id])
+    if @users
+      render json: {
+        users: @users
+      }
+    else
+      render json: {
+        status: 500,
+        errors: ['no students found']
+      }
+    end
+  end
+
   def create
     @cohort = Cohort.new(cohort_params)
     if @cohort.save

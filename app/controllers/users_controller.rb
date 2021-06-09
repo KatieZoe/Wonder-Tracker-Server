@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+require 'pry'
+
   def index
     @users = User.all
     if @users

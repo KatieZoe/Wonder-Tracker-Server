@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-require 'pry'
-
   def index
     @users = User.all
     if @users
@@ -45,8 +43,6 @@ require 'pry'
       }
     end
   end
-
-  ##Not really sure about update function it.
 
   def update
     @user = User.find(params[:id])

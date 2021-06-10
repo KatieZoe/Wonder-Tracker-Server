@@ -72,10 +72,15 @@ class JobtrackersController < ApplicationController
 
   def update
     @jobtracker = Jobtracker.find(params[:id])
+    puts "Jobtracker user id"
+    puts @jobtracker.user_id
+
+    puts "Jobtracker_params"
+    puts jobtracker_params
     if @jobtracker.update(jobtracker_params)
       render json: {
         status: :updated,
-        user: @jobtracker
+        jobtracker: @jobtracker
       }
     else
       render json: {
@@ -92,7 +97,7 @@ class JobtrackersController < ApplicationController
   end
 
   def jobtracker_params
-    params.require(:jobtracker).permit(:company_name, :jd, :date_applied, :job_title, :status, :job_notes, :collateral)
+    params.require(:jobtracker).permit(:company_name, :jd, :date_applied, :job_title, :status, :job_notes, :collateral,:user_id)
   end
 
 end

@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 
-
   def index
     @users = User.all
     if @users
@@ -44,8 +43,6 @@ class UsersController < ApplicationController
       }
     end
   end
-
-  ##Not really sure about update function it.
 
   def update
     @user = User.find(params[:id])

@@ -97,7 +97,7 @@ class JobtrackersController < ApplicationController
   end
 
   def jobtracker_params
-    params.require(:jobtracker).permit(:company_name, :jd, :date_applied, :job_title, :status, :job_notes, :collateral,:user_id)
+    params.require(:jobtracker).permit(:company_name, :jd, :date_applied, :job_title, :status, :job_notes, :collateral, :user_id)
   end
 
 end

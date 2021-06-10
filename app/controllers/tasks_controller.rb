@@ -13,6 +13,20 @@ class TasksController < ApplicationController
     end
   end
 
+  def getTasks
+    @tasks = Task.all.where(user_id: params[:user_id])
+    if @tasks
+      render json: {
+        tasks: @tasks
+      }
+    else
+      render json: {
+        status: 500,
+        errors: ['no users found']
+      }
+    end
+  end
+  
   def show
     @task = Task.find(params[:id])
    if @task
@@ -79,6 +93,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :due_date, :status, :notes, :task_url)
+    params.require(:task).permit(:name, :due_date, :status, :notes, :task_url, :user_id)
   end
 end
